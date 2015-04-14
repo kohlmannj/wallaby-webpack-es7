@@ -19,7 +19,11 @@
   "devDependencies": {
     "babel": "5.1.4",
     "chai": "^2.2.0",
+    "react-tools": "^0.13.1",
     "wallaby-webpack": "0.0.4",
     "webpack": "^1.8.4"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
   }
 }
