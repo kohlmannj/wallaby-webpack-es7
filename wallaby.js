@@ -19,6 +19,8 @@ module.exports = function (wallaby) {
     // their wrapped versions will be loaded instead
     files: [
       { pattern: 'node_modules/chai/chai.js', instrument: false},
+      { pattern: 'node_modules/react-tools/src/test/phantomjs-shims.js', instrument: false},
+      { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'js/**/*.js*', load: false },
       { pattern: 'js/**/__tests__/*_spec.*', ignore: true }
     ],
@@ -49,6 +51,7 @@ module.exports = function (wallaby) {
       var mocha = wallaby.testFramework;
       mocha.ui('bdd');
       window.expect = chai.expect;
+      var should = chai.should();
       // required to trigger tests loading
       window.__moduleBundler.loadTests();
     }
