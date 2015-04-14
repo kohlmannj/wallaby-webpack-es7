@@ -1,0 +1,25 @@
+{
+  "name": "wallaby-webpack-es7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wallaby.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallabyjs/wallaby-webpack-es7.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wallabyjs/wallaby-webpack-es7/issues"
+  },
+  "homepage": "https://github.com/wallabyjs/wallaby-webpack-es7",
+  "devDependencies": {
+    "babel": "5.1.4",
+    "chai": "^2.2.0",
+    "wallaby-webpack": "0.0.4",
+    "webpack": "^1.8.4"
+  }
+}
