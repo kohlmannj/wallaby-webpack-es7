@@ -21,6 +21,7 @@ module.exports = function (wallaby) {
       { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'node_modules/react-tools/src/test/phantomjs-shims.js', instrument: false},
       { pattern: 'node_modules/chai/chai.js', instrument: false},
+      { pattern: 'node_modules/react/dist/react.js', instrument: false},
       { pattern: 'js/**/*.js*', load: false },
       { pattern: 'js/**/__tests__/*_spec.*', ignore: true }
     ],
