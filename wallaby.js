@@ -26,8 +26,9 @@ module.exports = function (wallaby) {
     // as they should not be loaded in browser,
     // their wrapped versions will be loaded instead
     files: [
-      { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'node_modules/react-tools/src/test/phantomjs-shims.js', instrument: false},
+      { pattern: 'node_modules/react/dist/react-with-addons.js', instrument: false},
+      { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'js/**/*.js*', load: false },
       { pattern: 'js/**/__tests__/*_spec.*', ignore: true }
