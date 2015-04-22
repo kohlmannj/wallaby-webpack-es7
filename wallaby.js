@@ -6,8 +6,16 @@ var wallabyPostprocessor = wallabyWebpack({
     plugins: [
       new webpack.DefinePlugin({
         _PRODUCTION_: true
-      })
-    ]
+      }),
+
+      new webpack.ResolverPlugin(
+          new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
+      )
+    ],
+
+    resolve: {
+      modulesDirectories: ["node_modules", "bower_component"]
+    }
   }
 );
 
