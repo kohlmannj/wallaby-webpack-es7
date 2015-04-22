@@ -1,4 +1,3 @@
-import React from 'react'
 var TestUtils = require('react/addons').addons.TestUtils
 var LinkToComponent = require('../LinkToComponent.jsx')
 

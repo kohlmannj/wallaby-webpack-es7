@@ -6,8 +6,17 @@ var wallabyPostprocessor = wallabyWebpack({
     plugins: [
       new webpack.DefinePlugin({
         _PRODUCTION_: true
-      })
-    ]
+      }),
+
+      new webpack.ResolverPlugin(
+          new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
+      )
+    ],
+
+    resolve: {
+      modulesDirectories: ["node_modules", "bower_component"],
+      extensions: [".js", ".jsx"]
+    }
   }
 );
 
@@ -18,8 +27,9 @@ module.exports = function (wallaby) {
     // as they should not be loaded in browser,
     // their wrapped versions will be loaded instead
     files: [
-      { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'node_modules/react-tools/src/test/phantomjs-shims.js', instrument: false},
+      { pattern: 'node_modules/react/dist/react-with-addons.js', instrument: false},
+      { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'node_modules/chai/chai.js', instrument: false},
       { pattern: 'node_modules/react/dist/react.js', instrument: false},
       { pattern: 'js/**/*.js*', load: false },
