@@ -1,6 +1,7 @@
 var wallabyWebpack = require('wallaby-webpack');
 var babel = require('babel');
 var webpack = require('webpack');
+var path = require('path');
 
 var wallabyPostprocessor = wallabyWebpack({
     plugins: [
@@ -14,8 +15,8 @@ var wallabyPostprocessor = wallabyWebpack({
     ],
 
     resolve: {
-      modulesDirectories: ["node_modules", "bower_component"],
-      extensions: [".js", ".jsx"]
+      modulesDirectories: [path.join(__dirname, 'node_modules'), path.join(__dirname, 'bower_components')],
+      extensions: ["", ".js", ".jsx"]
     }
   }
 );
@@ -30,8 +31,6 @@ module.exports = function (wallaby) {
       { pattern: 'node_modules/react-tools/src/test/phantomjs-shims.js', instrument: false},
       { pattern: 'node_modules/react/dist/react-with-addons.js', instrument: false},
       { pattern: 'node_modules/chai/chai.js', instrument: false},
-      { pattern: 'node_modules/chai/chai.js', instrument: false},
-      { pattern: 'node_modules/react/dist/react.js', instrument: false},
       { pattern: 'js/**/*.js*', load: false },
       { pattern: 'js/**/__tests__/*_spec.*', ignore: true }
     ],
