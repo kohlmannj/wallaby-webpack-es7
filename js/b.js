@@ -1,3 +1,4 @@
-export default class B {
+class B {
   prop = 1
-};
+}
+export default B;

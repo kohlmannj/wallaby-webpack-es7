@@ -5,17 +5,13 @@ var path = require('path');
 
 var wallabyPostprocessor = wallabyWebpack({
     plugins: [
-      new webpack.DefinePlugin({
-        _PRODUCTION_: true
-      }),
-
       new webpack.ResolverPlugin(
           new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
       )
     ],
 
     resolve: {
-      modulesDirectories: [path.join(__dirname, 'node_modules'), 'node_modules', path.join(__dirname, 'bower_components')],
+      modulesDirectories: ['node_modules', path.join(__dirname, 'node_modules'), path.join(__dirname, 'bower_components')],
       extensions: ["", ".js", ".jsx"]
     }
   }
@@ -29,8 +25,12 @@ module.exports = function (wallaby) {
     // their wrapped versions will be loaded instead
     files: [
       { pattern: 'node_modules/react-tools/src/test/phantomjs-shims.js', instrument: false},
+
+      // to avoid loading react into each test manually
       { pattern: 'node_modules/react/dist/react-with-addons.js', instrument: false},
+
       { pattern: 'node_modules/chai/chai.js', instrument: false},
+
       { pattern: 'js/**/*.js*', load: false },
       { pattern: 'js/**/__tests__/*_spec.*', ignore: true }
     ],
@@ -42,12 +42,8 @@ module.exports = function (wallaby) {
     compilers: {
       'js/**/*.js*': wallaby.compilers.babel({
         babel: babel,
-        // other babel options
-        stage: 0    // https://babeljs.io/docs/usage/experimental/
-      }),
-
-      'js/**/*.coffee': wallaby.compilers.coffeeScript({
-        // CoffeeScript compiler specific options
+        // babel options
+        stage: 0
       })
     },
 
@@ -62,6 +58,7 @@ module.exports = function (wallaby) {
       mocha.ui('bdd');
       window.expect = chai.expect;
       var should = chai.should();
+
       // required to trigger tests loading
       window.__moduleBundler.loadTests();
     }
