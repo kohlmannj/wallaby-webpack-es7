@@ -15,7 +15,7 @@ var wallabyPostprocessor = wallabyWebpack({
     ],
 
     resolve: {
-      modulesDirectories: [path.join(__dirname, 'node_modules'), path.join(__dirname, 'bower_components')],
+      modulesDirectories: [path.join(__dirname, 'node_modules'), 'node_modules', path.join(__dirname, 'bower_components')],
       extensions: ["", ".js", ".jsx"]
     }
   }
