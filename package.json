@@ -20,7 +20,7 @@
     "babel": "5.1.4",
     "chai": "^2.2.0",
     "react-tools": "^0.13.1",
-    "wallaby-webpack": "0.0.5",
+    "wallaby-webpack": "0.0.7",
     "webpack": "^1.8.4"
   },
   "dependencies": {
