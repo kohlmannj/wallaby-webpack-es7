@@ -47,7 +47,7 @@ module.exports = function (wallaby) {
       })
     },
 
-    testFramework: "mocha@2.0.1",
+    testFramework: "mocha",
 
     postprocessor: wallabyPostprocessor,
 
